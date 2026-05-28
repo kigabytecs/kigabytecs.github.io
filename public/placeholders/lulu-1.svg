@@ -1,0 +1,10 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" rx="44" fill="#F9E8DE"/>
+  <circle cx="450" cy="390" r="210" fill="#E6A8A8"/>
+  <path d="M330 600C330 503.35 408.35 425 505 425H515C611.65 425 690 503.35 690 600V690H330V600Z" fill="#FFF7F2"/>
+  <circle cx="390" cy="340" r="22" fill="#5C3D40"/>
+  <circle cx="510" cy="340" r="22" fill="#5C3D40"/>
+  <path d="M450 388L493 430H407L450 388Z" fill="#CB7E4C"/>
+  <text x="450" y="910" text-anchor="middle" fill="#7F5959" font-size="64" font-family="Arial">Lulu</text>
+  <text x="450" y="972" text-anchor="middle" fill="#9A7676" font-size="30" font-family="Arial">bright little voice</text>
+</svg>

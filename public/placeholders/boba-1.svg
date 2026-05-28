@@ -1,0 +1,11 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" rx="44" fill="#F3E6D3"/>
+  <circle cx="450" cy="390" r="214" fill="#B98A63"/>
+  <circle cx="330" cy="305" r="72" fill="#A47654"/>
+  <circle cx="570" cy="305" r="72" fill="#A47654"/>
+  <path d="M280 670C280 559.544 369.544 470 480 470H420C530.456 470 620 559.544 620 670V760H280V670Z" fill="#F9F2E8"/>
+  <circle cx="395" cy="385" r="20" fill="#3F2C22"/>
+  <circle cx="505" cy="385" r="20" fill="#3F2C22"/>
+  <ellipse cx="450" cy="450" rx="48" ry="36" fill="#5E4132"/>
+  <text x="450" y="920" text-anchor="middle" fill="#6A4A36" font-size="64" font-family="Arial">Boba</text>
+</svg>

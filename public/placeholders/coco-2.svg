@@ -1,0 +1,10 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" rx="44" fill="#F5F7ED"/>
+  <rect x="90" y="108" width="720" height="884" rx="36" fill="#FCFCF6"/>
+  <circle cx="450" cy="390" r="194" fill="#C8D4AF"/>
+  <path d="M344 604C344 517.291 414.291 447 501 447H519C605.709 447 676 517.291 676 604V674H344V604Z" fill="#FFFFFF"/>
+  <circle cx="398" cy="344" r="18" fill="#45523B"/>
+  <circle cx="502" cy="344" r="18" fill="#45523B"/>
+  <path d="M450 386L484 419H416L450 386Z" fill="#D49454"/>
+  <text x="450" y="858" text-anchor="middle" fill="#687452" font-size="44" font-family="Arial">tiny explorer</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="900" y2="1100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8EFDD"/>
+      <stop offset="1" stop-color="#FFF9F0"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1100" rx="44" fill="url(#g)"/>
+  <circle cx="450" cy="382" r="188" fill="#BED0A0"/>
+  <path d="M196 774C196 630.406 312.406 514 456 514H444C587.594 514 704 630.406 704 774V846H196V774Z" fill="#FFFDF8"/>
+  <circle cx="398" cy="338" r="18" fill="#45523B"/>
+  <circle cx="502" cy="338" r="18" fill="#45523B"/>
+  <path d="M450 378L482 408H418L450 378Z" fill="#D08E4F"/>
+  <text x="450" y="936" text-anchor="middle" fill="#687452" font-size="42" font-family="Arial">curious little steps</text>
+</svg>

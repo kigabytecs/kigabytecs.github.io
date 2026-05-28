@@ -1,0 +1,10 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" rx="44" fill="#FFF1E2"/>
+  <rect x="90" y="120" width="720" height="860" rx="36" fill="#FFF9F3"/>
+  <circle cx="450" cy="410" r="200" fill="#EED0B7"/>
+  <path d="M450 390C503 390 546 435 546 490V565H354V490C354 435 397 390 450 390Z" fill="#FFFFFF"/>
+  <path d="M450 382L490 428H410L450 382Z" fill="#C97A4B"/>
+  <circle cx="395" cy="345" r="20" fill="#5B4136"/>
+  <circle cx="505" cy="345" r="20" fill="#5B4136"/>
+  <text x="450" y="860" text-anchor="middle" fill="#6B4D40" font-size="52" font-family="Arial">quiet afternoons</text>
+</svg>

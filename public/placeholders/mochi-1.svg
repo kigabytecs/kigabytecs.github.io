@@ -1,0 +1,10 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" rx="44" fill="#F7E7D6"/>
+  <circle cx="450" cy="420" r="210" fill="#EAB8A0"/>
+  <circle cx="390" cy="360" r="24" fill="#5B4136"/>
+  <circle cx="510" cy="360" r="24" fill="#5B4136"/>
+  <path d="M450 410C500 410 540 455 540 510V590H360V510C360 455 400 410 450 410Z" fill="#FFF7EF"/>
+  <path d="M450 405L488 445H412L450 405Z" fill="#D18A55"/>
+  <text x="450" y="900" text-anchor="middle" fill="#6B4D40" font-size="64" font-family="Arial">Mochi</text>
+  <text x="450" y="970" text-anchor="middle" fill="#8A6B5B" font-size="32" font-family="Arial">shoulder buddy</text>
+</svg>

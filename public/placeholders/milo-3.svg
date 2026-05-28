@@ -1,0 +1,17 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="900" y2="1100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3E2D0"/>
+      <stop offset="1" stop-color="#FFF9F1"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1100" rx="44" fill="url(#g)"/>
+  <circle cx="450" cy="394" r="198" fill="#DDB48D"/>
+  <circle cx="344" cy="320" r="58" fill="#CD9F78"/>
+  <circle cx="556" cy="320" r="58" fill="#CD9F78"/>
+  <path d="M206 788C206 640.011 326.011 520 474 520H426C573.989 520 694 640.011 694 788V854H206V788Z" fill="#FFFCF7"/>
+  <circle cx="401" cy="390" r="18" fill="#463229"/>
+  <circle cx="499" cy="390" r="18" fill="#463229"/>
+  <ellipse cx="450" cy="450" rx="40" ry="28" fill="#73503D"/>
+  <text x="450" y="938" text-anchor="middle" fill="#8A6550" font-size="42" font-family="Arial">always ready to play</text>
+</svg>

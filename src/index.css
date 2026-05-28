@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fff8ef;
+  --color-surface: #fffdf9;
+  --color-peach: #f6ddd0;
+  --color-peach-strong: #edc8b5;
+  --color-sage: #d8e4d2;
+  --color-sage-strong: #bdd0b2;
+  --color-butter: #f4e7b8;
+  --color-ink: #3b2f2a;
+  --color-muted: #7b6a5d;
+  --color-line: #eadccf;
+  --shadow-card: 0 14px 40px rgba(88, 62, 44, 0.08);
+  --font-sans: "Noto Sans Thai", sans-serif;
+  --font-display: "Anuphan", sans-serif;
+}
+
+:root {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background:
+    radial-gradient(circle at top, rgba(246, 221, 208, 0.4), transparent 24%),
+    linear-gradient(180deg, #fffaf4 0%, #fff8ef 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}

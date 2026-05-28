@@ -1,0 +1,17 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="900" y2="1100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0E0CC"/>
+      <stop offset="1" stop-color="#FFF8F0"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1100" rx="44" fill="url(#g)"/>
+  <circle cx="450" cy="394" r="198" fill="#BD8D67"/>
+  <circle cx="344" cy="318" r="58" fill="#A97855"/>
+  <circle cx="556" cy="318" r="58" fill="#A97855"/>
+  <path d="M214 786C214 638.011 334.011 518 482 518H418C565.989 518 686 638.011 686 786V854H214V786Z" fill="#FFF9F2"/>
+  <circle cx="401" cy="390" r="18" fill="#3F2C22"/>
+  <circle cx="499" cy="390" r="18" fill="#3F2C22"/>
+  <ellipse cx="450" cy="448" rx="40" ry="28" fill="#654534"/>
+  <text x="450" y="938" text-anchor="middle" fill="#7A5942" font-size="42" font-family="Arial">gentle guardian</text>
+</svg>

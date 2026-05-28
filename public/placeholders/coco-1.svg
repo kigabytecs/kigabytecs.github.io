@@ -1,0 +1,9 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" rx="44" fill="#EEF2E2"/>
+  <circle cx="450" cy="390" r="206" fill="#B7C59A"/>
+  <path d="M335 600C335 504.485 412.485 427 508 427H518C613.515 427 691 504.485 691 600V690H335V600Z" fill="#FDFDF8"/>
+  <circle cx="392" cy="340" r="20" fill="#45523B"/>
+  <circle cx="508" cy="340" r="20" fill="#45523B"/>
+  <path d="M450 388L490 428H410L450 388Z" fill="#D69856"/>
+  <text x="450" y="914" text-anchor="middle" fill="#5E6A48" font-size="64" font-family="Arial">Coco</text>
+</svg>

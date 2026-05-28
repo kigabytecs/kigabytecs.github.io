@@ -1,0 +1,9 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" rx="44" fill="#F6EFD8"/>
+  <circle cx="450" cy="392" r="206" fill="#E7D29E"/>
+  <path d="M336 602C336 505.933 413.933 428 510 428H520C616.067 428 694 505.933 694 602V692H336V602Z" fill="#FFFDF7"/>
+  <circle cx="392" cy="344" r="20" fill="#534A36"/>
+  <circle cx="508" cy="344" r="20" fill="#534A36"/>
+  <path d="M450 390L490 428H410L450 390Z" fill="#D29754"/>
+  <text x="450" y="916" text-anchor="middle" fill="#786D4A" font-size="64" font-family="Arial">Pudding</text>
+</svg>

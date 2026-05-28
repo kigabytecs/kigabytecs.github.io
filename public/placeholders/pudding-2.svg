@@ -1,0 +1,10 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" rx="44" fill="#FBF7E7"/>
+  <rect x="90" y="112" width="720" height="880" rx="36" fill="#FFFDF7"/>
+  <circle cx="450" cy="392" r="194" fill="#EBDDB5"/>
+  <path d="M344 606C344 518.186 415.186 447 503 447H519C606.814 447 678 518.186 678 606V676H344V606Z" fill="#FFFFFF"/>
+  <circle cx="398" cy="346" r="18" fill="#534A36"/>
+  <circle cx="502" cy="346" r="18" fill="#534A36"/>
+  <path d="M450 388L484 420H416L450 388Z" fill="#D69A56"/>
+  <text x="450" y="860" text-anchor="middle" fill="#857956" font-size="46" font-family="Arial">gentle mornings</text>
+</svg>
