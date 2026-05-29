@@ -13,11 +13,11 @@ export type BirthdaySummary = {
   isComingSoon: boolean
 }
 
-export type MemberSortKey = 'default' | 'name' | 'age' | 'birthday'
+export type MemberSortKey = 'name' | 'age' | 'birthday'
 export type SortDirection = 'asc' | 'desc'
 
 export function getBirthdaySummary(pet: Pet, now = new Date()): BirthdaySummary | null {
-  const dateOfBirth = pet.dateOfBirth
+  const dateOfBirth = pet.dateOfBirth ?? pet.dateJoinedFamily
 
   if (!dateOfBirth || pet.datePassedAway) {
     return null
@@ -64,8 +64,15 @@ export function sortLivingPets(
     }
     case 'age': {
       const sorted = items.sort((a, b) => {
-        const aDate = new Date(a.dateOfBirth ?? a.dateJoinedFamily).getTime()
-        const bDate = new Date(b.dateOfBirth ?? b.dateJoinedFamily).getTime()
+        const aReferenceDate = a.dateOfBirth ?? a.dateJoinedFamily
+        const bReferenceDate = b.dateOfBirth ?? b.dateJoinedFamily
+
+        if (!aReferenceDate && !bReferenceDate) return 0
+        if (!aReferenceDate) return 1
+        if (!bReferenceDate) return -1
+
+        const aDate = new Date(aReferenceDate).getTime()
+        const bDate = new Date(bReferenceDate).getTime()
         return direction === 'asc' ? bDate - aDate : aDate - bDate
       })
       return sorted
@@ -85,17 +92,15 @@ export function sortLivingPets(
       })
       return sorted
     }
-    default:
-      return items
   }
 }
 
-export function getUpcomingBirthdays(pets: Pet[], limit = 3) {
+export function getUpcomingBirthdays(pets: Pet[], lookaheadDays = 31) {
   return pets
     .map((pet) => getBirthdaySummary(pet))
     .filter((summary): summary is BirthdaySummary => Boolean(summary))
+    .filter((summary) => summary.daysUntilBirthday <= lookaheadDays)
     .sort((a, b) => a.daysUntilBirthday - b.daysUntilBirthday)
-    .slice(0, limit)
 }
 
 export function formatDaysUntilBirthday(daysUntilBirthday: number) {

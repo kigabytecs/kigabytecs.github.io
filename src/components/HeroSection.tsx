@@ -12,7 +12,7 @@ export function HeroSection({ memberCount }: HeroSectionProps) {
       <div className="relative grid gap-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
         <div className="space-y-6 pt-2">
           <span className="inline-flex rounded-full border border-line bg-white/80 px-3 py-1 text-xs font-medium tracking-wide text-muted">
-            digital pet memory archive
+            KM Family Photo Album
           </span>
 
           <div className="space-y-3">
@@ -33,7 +33,7 @@ export function HeroSection({ memberCount }: HeroSectionProps) {
               ดูสมาชิกในบ้าน
             </a>
             <div className="rounded-[24px] border border-white/70 bg-white/75 px-4 py-3 text-sm text-muted shadow-card">
-              <span className="font-medium text-ink">{memberCount} ชีวิตเล็ก ๆ</span> ที่ทำให้บ้านนี้เต็มไปด้วยเสียง
+              <span className="font-medium text-ink">{memberCount} ชีวิตเล็ก ๆ</span> ที่ทำให้บ้านนี้เต็มไปด้วยเสียงหัวเราะ
               ความทรงจำ และความอบอุ่น
             </div>
           </div>
@@ -44,7 +44,7 @@ export function HeroSection({ memberCount }: HeroSectionProps) {
             <div className="col-span-2 overflow-hidden rounded-[28px] bg-gradient-to-br from-peach via-butter/65 to-sage/75 p-2">
               <div className="overflow-hidden rounded-[22px] bg-white/80">
                 <img
-                  src="/placeholders/mochi-1.svg"
+                  src="/hero/01.jpeg"
                   alt="ภาพความทรงจำของสัตว์เลี้ยงในบ้าน"
                   className="aspect-[4/3] h-full w-full object-cover"
                 />
@@ -53,7 +53,7 @@ export function HeroSection({ memberCount }: HeroSectionProps) {
 
             <div className="overflow-hidden rounded-[24px] bg-white/80 p-2">
               <img
-                src="/placeholders/lulu-1.svg"
+                src="/hero/02.jpg"
                 alt="ภาพความทรงจำของสัตว์เลี้ยงในบ้าน"
                 className="aspect-[4/5] h-full w-full rounded-[18px] object-cover"
               />
@@ -61,7 +61,7 @@ export function HeroSection({ memberCount }: HeroSectionProps) {
             <div className="space-y-3">
               <div className="overflow-hidden rounded-[24px] bg-white/80 p-2">
                 <img
-                  src="/placeholders/boba-1.svg"
+                  src="/hero/03.jpg"
                   alt="ภาพความทรงจำของสัตว์เลี้ยงในบ้าน"
                   className="aspect-[4/5] h-full w-full rounded-[18px] object-cover"
                 />

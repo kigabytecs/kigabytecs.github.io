@@ -8,11 +8,13 @@ type MemorialCardProps = {
 }
 
 export function MemorialCard({ pet, onOpen }: MemorialCardProps) {
+  const joinedFamilyReferenceDate = pet.dateJoinedFamily ?? pet.dateOfBirth
+
   return (
     <button
       type="button"
       onClick={() => onOpen(pet)}
-      className="overflow-hidden rounded-[30px] border border-line/45 bg-[linear-gradient(135deg,rgba(246,221,208,0.55),rgba(244,231,184,0.55))] text-left shadow-card transition-transform duration-200 hover:-translate-y-1"
+      className="self-start overflow-hidden rounded-[30px] border border-line/45 bg-[linear-gradient(135deg,rgba(246,221,208,0.55),rgba(244,231,184,0.55))] text-left shadow-card transition-transform duration-200 hover:-translate-y-1"
     >
       <div className="relative overflow-hidden bg-[linear-gradient(135deg,rgba(246,221,208,0.55),rgba(244,231,184,0.55))]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.35),transparent_30%)]" />
@@ -28,7 +30,9 @@ export function MemorialCard({ pet, onOpen }: MemorialCardProps) {
           <div>
             <p className="font-display text-2xl font-semibold leading-tight">{getPetDisplayName(pet)}</p>
             <p className="text-sm text-muted">
-              อยู่กับเรา {formatAge(pet.dateOfBirth ?? pet.dateJoinedFamily, pet.datePassedAway)}
+              {joinedFamilyReferenceDate && pet.datePassedAway
+                ? `อยู่กับเรา ${formatAge(joinedFamilyReferenceDate, pet.datePassedAway)}`
+                : 'ระยะเวลาที่อยู่ด้วยกันไม่แน่ชัด'}
             </p>
           </div>
           <span className="rounded-full bg-butter px-3 py-1 text-xs font-medium text-ink">ยังคิดถึง</span>

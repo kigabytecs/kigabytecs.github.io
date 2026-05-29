@@ -1,5 +1,5 @@
-import { useRef } from 'react'
-import type { TouchEvent } from 'react'
+import { useEffect, useRef } from 'react'
+import type { PointerEvent, TouchEvent } from 'react'
 import type { Pet } from '../data/pets'
 import { formatDaysUntilBirthday, getBirthdaySummary } from '../lib/birthdays'
 import { formatAge, formatThaiDate } from '../lib/age'
@@ -14,10 +14,39 @@ type PetModalProps = {
 
 export function PetModal({ pet, activeImage, onChangeImage, onClose }: PetModalProps) {
   const touchStartX = useRef<number | null>(null)
+  const pointerStartX = useRef<number | null>(null)
   const previousImage = activeImage === 0 ? pet.galleryImages.length - 1 : activeImage - 1
   const nextImage = activeImage === pet.galleryImages.length - 1 ? 0 : activeImage + 1
   const isMemorial = Boolean(pet.datePassedAway)
   const birthday = getBirthdaySummary(pet)
+  const joinedFamilyReferenceDate = pet.dateJoinedFamily ?? pet.dateOfBirth
+  const ageReferenceDate = pet.dateOfBirth ?? joinedFamilyReferenceDate
+  const ageLabel = pet.dateOfBirth ? 'อายุ' : 'อายุโดยประมาณ'
+
+  const goToPreviousImage = () => {
+    onChangeImage(previousImage)
+  }
+
+  const goToNextImage = () => {
+    onChangeImage(nextImage)
+  }
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault()
+        onChangeImage(previousImage)
+      }
+
+      if (event.key === 'ArrowRight') {
+        event.preventDefault()
+        onChangeImage(nextImage)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [nextImage, onChangeImage, previousImage])
 
   const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
     touchStartX.current = event.changedTouches[0]?.clientX ?? null
@@ -39,11 +68,43 @@ export function PetModal({ pet, activeImage, onChangeImage, onClose }: PetModalP
     }
 
     if (deltaX < 0) {
-      onChangeImage(nextImage)
+      goToNextImage()
       return
     }
 
-    onChangeImage(previousImage)
+    goToPreviousImage()
+  }
+
+  const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType !== 'mouse' && event.pointerType !== 'pen') {
+      return
+    }
+
+    pointerStartX.current = event.clientX
+  }
+
+  const handlePointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    if (pointerStartX.current == null) {
+      return
+    }
+
+    const deltaX = event.clientX - pointerStartX.current
+    pointerStartX.current = null
+
+    if (Math.abs(deltaX) < 40) {
+      return
+    }
+
+    if (deltaX < 0) {
+      goToNextImage()
+      return
+    }
+
+    goToPreviousImage()
+  }
+
+  const handlePointerLeave = () => {
+    pointerStartX.current = null
   }
 
   return (
@@ -71,18 +132,25 @@ export function PetModal({ pet, activeImage, onChangeImage, onClose }: PetModalP
 
           <div className="space-y-5 p-5">
             <div
-              className="relative overflow-hidden rounded-[28px] bg-white shadow-card"
+              className="pet-gallery relative overflow-hidden rounded-[28px] bg-white shadow-card"
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
+              onPointerDown={handlePointerDown}
+              onPointerUp={handlePointerUp}
+              onPointerLeave={handlePointerLeave}
             >
               <img
                 src={pet.galleryImages[activeImage]}
                 alt={`${getPetPrimaryName(pet)} photo ${activeImage + 1}`}
                 className="aspect-[4/5] w-full object-cover"
+                draggable={false}
               />
               <button
                 type="button"
-                onClick={() => onChangeImage(previousImage)}
+                onClick={(event) => {
+                  event.stopPropagation()
+                  goToPreviousImage()
+                }}
                 className="absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/50 bg-[rgba(59,47,42,0.72)] text-white shadow-lg backdrop-blur transition hover:bg-[rgba(59,47,42,0.82)]"
                 aria-label="รูปก่อนหน้า"
               >
@@ -90,7 +158,10 @@ export function PetModal({ pet, activeImage, onChangeImage, onClose }: PetModalP
               </button>
               <button
                 type="button"
-                onClick={() => onChangeImage(nextImage)}
+                onClick={(event) => {
+                  event.stopPropagation()
+                  goToNextImage()
+                }}
                 className="absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/50 bg-[rgba(59,47,42,0.72)] text-white shadow-lg backdrop-blur transition hover:bg-[rgba(59,47,42,0.82)]"
                 aria-label="รูปถัดไป"
               >
@@ -126,10 +197,28 @@ export function PetModal({ pet, activeImage, onChangeImage, onClose }: PetModalP
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <InfoCard label="อายุ" value={formatAge(pet.dateOfBirth ?? pet.dateJoinedFamily, pet.datePassedAway)} />
-              <InfoCard label="วันเข้าบ้าน" value={formatThaiDate(pet.dateJoinedFamily)} />
-              <InfoCard label="สถานะ" value={pet.datePassedAway ? 'อยู่ในความทรงจำเสมอ' : 'ยังอยู่กับบ้านนี้'} />
-              <InfoCard label="วันเกิด / วันเริ่มต้น" value={formatThaiDate(pet.dateOfBirth ?? pet.dateJoinedFamily)} />
+              <InfoCard
+                label={ageLabel}
+                value={ageReferenceDate ? formatAge(ageReferenceDate, pet.datePassedAway) : 'ไม่ทราบแน่ชัด'}
+              />
+              <InfoCard
+                label="วันเข้าบ้าน"
+                value={pet.dateJoinedFamily ? formatThaiDate(pet.dateJoinedFamily) : 'ไม่ทราบแน่ชัด'}
+              />
+              <InfoCard
+                label={pet.datePassedAway ? 'อยู่กับบ้านนี้' : 'สถานะ'}
+                value={
+                  pet.datePassedAway
+                    ? joinedFamilyReferenceDate
+                      ? formatAge(joinedFamilyReferenceDate, pet.datePassedAway)
+                      : 'ไม่ทราบแน่ชัด'
+                    : 'ยังอยู่กับบ้านนี้'
+                }
+              />
+              <InfoCard
+                label={pet.dateOfBirth ? 'วันเกิด' : 'วันเกิดโดยประมาณ'}
+                value={ageReferenceDate ? formatThaiDate(ageReferenceDate) : 'ไม่ทราบแน่ชัด'}
+              />
             </div>
 
             {birthday ? (
@@ -156,7 +245,7 @@ export function PetModal({ pet, activeImage, onChangeImage, onClose }: PetModalP
             {pet.datePassedAway ? (
               <div className="rounded-[28px] border border-line bg-[#fff8f0] p-5">
                 <p className="text-sm text-muted">อยู่กับเราไปจนถึง</p>
-                <p className="mt-2 font-display text-2xl font-semibold">{formatThaiDate(pet.datePassedAway)}</p>
+                <p className="mt-2 font-display text-xl font-semibold sm:text-2xl">{formatThaiDate(pet.datePassedAway)}</p>
               </div>
             ) : null}
           </div>

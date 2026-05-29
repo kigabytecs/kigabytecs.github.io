@@ -59,3 +59,287 @@ button {
 #root {
   min-height: 100vh;
 }
+
+.pet-gallery {
+  cursor: grab;
+  user-select: none;
+}
+
+.pet-gallery:active {
+  cursor: grabbing;
+}
+
+.birthday-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(246, 221, 208, 0.3), transparent 22%),
+    radial-gradient(circle at bottom left, rgba(216, 228, 210, 0.24), transparent 24%);
+  pointer-events: none;
+}
+
+.birthday-section::after {
+  content: "";
+  position: absolute;
+  inset: -20% auto auto -10%;
+  width: 44%;
+  height: 140%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  transform: rotate(10deg);
+  animation: birthdayShimmer 11s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.birthday-card {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.birthday-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px rgba(88, 62, 44, 0.1);
+  border-color: rgba(255, 255, 255, 0.95);
+}
+
+.birthday-pill {
+  animation: birthdayPulse 2.8s ease-in-out infinite;
+}
+
+.birthday-float {
+  animation: birthdayFloat 5s ease-in-out infinite;
+}
+
+.birthday-wiggle {
+  animation: birthdayWiggle 3.2s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.birthday-sparkle {
+  animation: birthdaySparkle 2.6s ease-in-out infinite;
+}
+
+.birthday-confetti {
+  animation: birthdayConfetti 4.8s ease-in-out infinite;
+}
+
+.birthday-confetti-delay {
+  animation-delay: 1.3s;
+}
+
+.birthday-orb {
+  animation: birthdayOrbFloat 6.5s ease-in-out infinite;
+}
+
+.birthday-orb-delay {
+  animation-delay: 1.6s;
+}
+
+.birthday-orb-slow {
+  animation-duration: 7.8s;
+}
+
+.birthday-streamer {
+  transform-origin: top center;
+  opacity: 0.8;
+}
+
+.birthday-streamer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: 0 auto;
+  width: 6px;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(246, 221, 208, 0.9), rgba(244, 231, 184, 0.2));
+}
+
+.birthday-streamer::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  transform: translateX(-50%);
+  box-shadow:
+    0 0 0 5px rgba(246, 221, 208, 0.32),
+    0 12px 20px rgba(88, 62, 44, 0.08);
+}
+
+.birthday-streamer-left {
+  animation: birthdayStreamerLeft 4.4s ease-in-out infinite;
+}
+
+.birthday-streamer-right {
+  animation: birthdayStreamerRight 5s ease-in-out infinite;
+}
+
+.birthday-glow {
+  animation: birthdayGlow 7s ease-in-out infinite;
+}
+
+@keyframes birthdayFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes birthdayPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(246, 221, 208, 0);
+  }
+
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 8px rgba(246, 221, 208, 0.12);
+  }
+}
+
+@keyframes birthdayWiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(-4deg);
+  }
+
+  40% {
+    transform: rotate(3deg);
+  }
+
+  60% {
+    transform: rotate(-2deg);
+  }
+
+  80% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes birthdaySparkle {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12) rotate(8deg);
+  }
+}
+
+@keyframes birthdayConfetti {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(22deg) scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes birthdayOrbFloat {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
+}
+
+@keyframes birthdayGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes birthdayStreamerLeft {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+
+  50% {
+    transform: rotate(5deg) translateY(4px);
+  }
+}
+
+@keyframes birthdayStreamerRight {
+  0%,
+  100% {
+    transform: rotate(5deg);
+  }
+
+  50% {
+    transform: rotate(-4deg) translateY(5px);
+  }
+}
+
+@keyframes birthdayShimmer {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateX(-10%) rotate(10deg);
+  }
+
+  15%,
+  70% {
+    opacity: 0;
+  }
+
+  35%,
+  55% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(160%) rotate(10deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .birthday-pill,
+  .birthday-float,
+  .birthday-wiggle,
+  .birthday-sparkle,
+  .birthday-confetti,
+  .birthday-orb,
+  .birthday-streamer-left,
+  .birthday-streamer-right,
+  .birthday-glow,
+  .birthday-section::after {
+    animation: none;
+  }
+
+  .birthday-card {
+    transition: none;
+  }
+}
